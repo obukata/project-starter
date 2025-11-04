@@ -1,6 +1,6 @@
 {
   "name": "@obukata/project-starter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "bin": {
     "project-starter": "./bin/create.js"
   },
