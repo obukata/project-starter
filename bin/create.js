@@ -9,6 +9,7 @@ const cwd = process.cwd();
 
 console.log(chalk.cyanBright("🚀 @obukata/project-starter\n"));
 
+// --- テンプレート選択 ---
 const { template } = await inquirer.prompt([
   {
     type: "list",
@@ -21,6 +22,7 @@ const { template } = await inquirer.prompt([
   }
 ]);
 
+// --- プロジェクト名入力 ---
 const { projectName } = await inquirer.prompt([
   {
     type: "input",
@@ -30,15 +32,25 @@ const { projectName } = await inquirer.prompt([
   }
 ]);
 
+// --- コピー元・先のディレクトリ設定 ---
 const templateDir = path.resolve(new URL(".", import.meta.url).pathname, `../templates/${template}`);
 const destDir = path.join(cwd, projectName);
 
+// --- コピー処理 ---
 console.log(chalk.cyan(`📦 プロジェクトを作成中: ${projectName}`));
 await fs.copy(templateDir, destDir);
-
-process.chdir(destDir);
 console.log(chalk.green("✅ テンプレートコピー完了"));
-console.log(chalk.cyan("📥 npm install を実行中..."));
+
+// --- インストール対象ディレクトリを条件で変更 ---
+let installDir = destDir;
+if (template === "mj-server") {
+  installDir = path.join(destDir, "public");
+}
+
+// --- npm install 実行 ---
+console.log(chalk.cyan(`📥 npm install を実行中...（${installDir}）`));
+process.chdir(installDir);
 await execa("npm", ["install"], { stdio: "inherit" });
 
+// --- 完了メッセージ ---
 console.log(chalk.green(`🎉 完了! "${projectName}" フォルダが作成されました。`));
