@@ -1,0 +1,26 @@
+## Windows ##
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+## Mac ##
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+
+## project file ##
+dist
+src/assets/styles/main.css
+node_modules
+package-lock.json
+
+## vscode
+*.code-workspace

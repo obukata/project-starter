@@ -1,0 +1,4 @@
+AddType application/x-httpd-php .html
+ErrorDocument 404 /404.html
+
+php_flag display_errors Off
