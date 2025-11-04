@@ -1,7 +1,9 @@
 {
   "name": "@obukata/project-starter",
   "version": "1.0.1",
-  "main": "./bin/create.js",
+  "bin": {
+    "project-starter": "./bin/create.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
