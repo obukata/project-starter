@@ -4,6 +4,7 @@
   "bin": {
     "project-starter": "./bin/create.js"
   },
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +23,7 @@
     "chalk": "^5.6.2",
     "execa": "^9.6.0",
     "fs-extra": "^11.3.2",
-    "inquirer": "^12.10.0"
+    "inquirer": "^12.10.0",
+    "url": "^0.11.4"
   }
 }
